@@ -1,3 +1,5 @@
+Create Database Universidade;
+
 use Universidade;
 
 Create Table Aluno (
@@ -53,15 +55,15 @@ select * from Aluno;
 
 insert into Disciplina
 Values('elm', 'Eletromagnetismo', 30),
-('cal', 'C·lculo', 30),
-('lip', 'LÌngua Portuguesa', 20),
-('cel', 'Circuito EletrÙnico', 30),
+('cal', 'C√°lculo', 30),
+('lip', 'L√≠ngua Portuguesa', 20),
+('cel', 'Circuito Eletr√¥nico', 30),
 ('bdd', 'Banco de Dados', 40),
 ('alg', 'Algoritmos', 40),
-('log', 'LÛgica', 40),
+('log', 'L√≥gica', 40),
 ('poo', 'POO', 40),
 ('edd', 'Estrutura de Dados', 40),
-('etc', '…tica', 30),
+('etc', '√âtica', 30),
 ('dsi', 'Design Sistemas', 20),
 ('pla', 'Planejamento', 20);
 
@@ -175,7 +177,7 @@ END
 GO
 
 
---InÌcio dos testes, para comprovar que o Trigger calcula somente a partir de quando tiver informaÁıes em Falta, Nota1 e Nota2.
+--In√≠cio dos testes, para comprovar que o Trigger calcula somente a partir de quando tiver informa√ß√µes em Falta, Nota1 e Nota2.
 
 
 --Adicionando os dados pelo Insert InTo, menos a nota_sub
@@ -229,7 +231,7 @@ update Matricula set Nota_N2 = 2, Falta = 4 where (RA = 1 and Sigla = 'LIP'and D
 
 select * from Matricula;
 
---Fim dos testes, comprovado que o Trigger calcula somente a partir de quando tiver informaÁıes em Falta, Nota1 e Nota2.
+--Fim dos testes, comprovado que o Trigger calcula somente a partir de quando tiver informa√ß√µes em Falta, Nota1 e Nota2.
 
 --Limpar Tabela
 delete from Matricula;
@@ -237,7 +239,7 @@ GO
 
 
 
---Adicionando v·rios registros para a tabela matricula:
+--Adicionando v√°rios registros para a tabela matricula:
 
 insert into Matricula(RA, Sigla, Data_Ano, Data_Semestre)
 Values(1, 'ELM', 2021, 1), (1, 'CAL', 2021, 1), (1, 'LIP', 2021, 1), (1, 'CEL', 2021, 1), (1, 'BDD', 2021, 1);
@@ -346,7 +348,7 @@ select * from Matricula;
 
 
 
---Quais s„o alunos de uma determinada disciplina ministrada no ano de 2021, com suas notas, faltas e SituaÁ„o Final.
+--Quais s√£o alunos de uma determinada disciplina ministrada no ano de 2021, com suas notas, faltas e Situa√ß√£o Final.
 
 --Consulta 1
 select Disciplina.Nome, Aluno.Nome, Matricula.Data_Ano, Matricula.Falta, Matricula. Nota_N1,
@@ -361,7 +363,7 @@ from Disciplina, Matricula, Aluno
 where Data_Ano = 2021 AND Matricula.Sigla = 'LIP' AND Disciplina.Sigla = Matricula.Sigla AND Aluno.RA = Matricula.RA
 
 
---Quais s„o as notas, faltas e situaÁ„o final (Boletim) de um aluno em todas as disciplinas por ele cursadas no ano de 2021, no segundo semestre.
+--Quais s√£o as notas, faltas e situa√ß√£o final (Boletim) de um aluno em todas as disciplinas por ele cursadas no ano de 2021, no segundo semestre.
 
 --Consulta 1
 select Disciplina.Nome, Aluno.Nome, Matricula.Data_Ano, Matricula.Data_Semestre, Matricula.Falta, Matricula. Nota_N1,
@@ -378,7 +380,7 @@ where Data_Ano = 2021 AND Aluno.Nome = 'Mariana' AND Disciplina.Sigla = Matricul
 Order By Data_Semestre;
 
 
---Quais s„o os alunos reprovados por nota (mÈdia inferior a cinco) no ano de 2021 e, o nome das disciplinas em que eles reprovaram, com suas notas e mÈdias.
+--Quais s√£o os alunos reprovados por nota (m√©dia inferior a cinco) no ano de 2021 e, o nome das disciplinas em que eles reprovaram, com suas notas e m√©dias.
 
 --Consulta 1
 select Disciplina.Nome as 'Disciplina Reprovada', Aluno.Nome as 'Aluno', Matricula.Data_Ano as 'Ano' , 
